@@ -1,6 +1,6 @@
 #!/bin/sh
 
-repo="git@github.com:hopsoft/example.git"
+repo="https://github.com/sirbijan/sample_rails_app.git"
 dir="/home/app/example"
 logfile="/var/log/example.log"
 
