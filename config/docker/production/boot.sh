@@ -14,13 +14,13 @@ chown -R www-data:adm /var/log/nginx/
 su - app <<EOF
 if [ -d "$dir" ]; then
  cd "$dir"
- git reset — hard
+ git reset --hard
  git clean -fd .
  su app git checkout "$branch"
  git pull
  git checkout "$branch" 
  git pull
- git reset — hard "origin/$branch"
+ git reset --hard "origin/$branch"
 else
  git clone -b "$branch" "$repo" "$dir"
  cd "$dir"
