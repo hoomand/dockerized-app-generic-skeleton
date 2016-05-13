@@ -27,7 +27,7 @@ else
  git checkout "$branch"
 fi
 
-bundle install
+bundle install --path ~/.gem
 bundle exec passenger start
 EOF
 
