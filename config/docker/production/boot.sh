@@ -1,28 +1,28 @@
 #!/bin/sh
 
-repo=”git@github.com:hopsoft/example.git”
-dir=”/home/app/example”
-logfile=”/var/log/example.log”
+repo="git@github.com:hopsoft/example.git"
+dir="/home/app/example"
+logfile="/var/log/example.log"
 
-touch “$logfile”
-chown -R app:app “$logfile”
+touch "$logfile"
+chown -R app:app "$logfile"
 
 mkdir -p /var/log/nginx/
 chown -R www-data:adm /var/log/nginx/
 
 su - app <<EOF
-if [ -d “$dir” ]; then
- cd “$dir”
+if [ -d "$dir" ]; then
+ cd "$dir"
  git reset — hard
  git clean -fd .
  su app git checkout master
  git pull
  git checkout master
  git pull
- git reset — hard “origin/master”
+ git reset — hard "origin/master"
 else
- git clone “$repo” “$dir”
- cd “$dir”
+ git clone "$repo" "$dir"
+ cd "$dir"
  git checkout master
 fi
 
