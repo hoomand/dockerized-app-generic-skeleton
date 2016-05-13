@@ -5,7 +5,7 @@ MAINTAINER Nathan Hopkins <nhopkins@example.com>
 ENV app_name=example
 
 # use baseimage-docker’s init process
-CMD [“/sbin/my_init”]
+CMD ["/sbin/my_init"]
 
 # add boot script
 ADD boot.sh /etc/my_init.d/boot.sh
