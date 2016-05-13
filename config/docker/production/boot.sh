@@ -1,6 +1,7 @@
 #!/bin/sh
 
-repo="https://github.com/sirbijan/sample_rails_app.git"
+repo="https://github.com/phusion/passenger-ruby-rails-demo.git"
+branch="end_result"
 dir="/home/app/example"
 logfile="/var/log/example.log"
 
@@ -15,21 +16,19 @@ if [ -d "$dir" ]; then
  cd "$dir"
  git reset — hard
  git clean -fd .
- su app git checkout master
+ su app git checkout "$branch"
  git pull
- git checkout master
+ git checkout "$branch" 
  git pull
- git reset — hard "origin/master"
+ git reset — hard "origin/$branch"
 else
- git clone "$repo" "$dir"
+ git clone -b "$branch" "$repo" "$dir"
  cd "$dir"
- git checkout master
+ git checkout "$branch"
 fi
 
-/usr/local/bin/bundle --deployment
-/usr/local/bin/bundle clean --force
-RAILS_ENV=production /usr/local/bin/bundle exec rake assets:clobber
-RAILS_ENV=production /usr/local/bin/bundle exec rake assets:precompile
+bundle install
+bundle exec passenger start
 EOF
 
 chown -R app:app "$dir"
