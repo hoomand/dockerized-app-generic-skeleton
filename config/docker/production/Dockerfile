@@ -1,5 +1,5 @@
 FROM phusion/passenger-ruby22:0.9.17
-MAINTAINER Nathan Hopkins <nhopkins@example.com>
+MAINTAINER Bijan Hoomand <hoomand@gmail.com>>
 
 # set environment variables
 ENV app_name=example
