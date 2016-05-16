@@ -1,4 +1,4 @@
-# Generic Skeleton to dockerize any software project
+# Docker skeleton for Your App!
 A generic skeleton to add Docker file to any software project. This skeleton supports different environments (dev, test, prod, ...) and you can also include your SSH keys in related SSH folders to be included in the final Docker image (not very secure, but enables the containers to automatically checkout new commits).
 
 Regardless of what software project you are working on, you probably have a *config* directory in your application's root directory (hint: if you don't, create it!).
